@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Create a Boring... I mean... Blog Entry!</h1>
+    <form action="/newpost" method='post'>
+        <label>
+            New Post Title:
+            <input type="text" name='title' value='{{ blog_title }}'/>{{title}}
+        </label>
+        <p class='error' name="title_error">{{title_error}}</p>
+        <br>
+        <label>
+            Blog Content:
+            <textarea name="body" value='{{ blog_body }}'>{{ body }}</textarea>
+        </label>
+        <p class='error' name="body_error">{{body_error}}</p>        
+        <input type="submit" value='Submit Post' />
+    </form>
+
+{% endblock %}

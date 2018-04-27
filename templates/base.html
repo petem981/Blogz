@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{title}}</title>
+        <style>
+        .error {
+            color: red;
+        }
+        
+        </style>
+    </head>
+<body>
+    <header><p>
+        <!--{% if session['username'] %}
+        Logged in as {{username}}
+        {% else %}
+        Please log in <a href="/login">here!</a>
+        {% endif %} -->
+
+
+    </p></header>
+    <nav>
+        <a href="/blog">Main Blog Page</a>  |
+        <a href="/newpost">Create a New Entry</a>  |
+        <a href="/login">Log in</a>  |
+        <a href="/logout">Log out</a>  |
+        <a href="/">Users Home</a>  |
+
+        
+    </nav>
+
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        <ul>
+        {% for category, message in messages %}
+            <li class="{{category}}">{{message}}</li>
+        {% endfor %}
+        </ul>
+    {% endwith %}
+    <!--flash message somewhere-->
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>

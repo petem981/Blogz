@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Blogzzz! Where you can share your boring thoughtzzz.</h1>
+
+{% if posts|length == 0 %}
+    
+    <p>Create and share your first boring!</p>
+
+{% else %}
+
+    {% for post in posts %}
+        <a href="/blog?id={{post.id}}"><h2>{{post.title}}</h2></a>
+        <br>
+        <p>{{post.body}}</p>
+        <br>
+        <h6>written by <a href="/blog?user={{post.owner_id}}">{{post.user.username}}</a></h6>
+        
+        <hr />
+    {% endfor %}
+
+
+{% endif %}
+
+{% endblock %}
